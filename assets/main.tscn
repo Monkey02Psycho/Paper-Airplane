@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/airplane/airplane.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/wasd_camera_movement/wasd_camera_movement.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/HUD/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/background_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/main.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2878.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2878.5, 10 )
+
+[node name="Main" type="Node2D"]
+z_index = 2
+script = ExtResource( 5 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="background" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/StaticBody2D"]
+position = Vector2( 0, 1300 )
+shape = SubResource( 1 )
+
+[node name="background2" type="Sprite" parent="."]
+position = Vector2( 5757, 0 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background2/StaticBody2D"]
+position = Vector2( 0, 1300 )
+shape = SubResource( 2 )
+
+[node name="airplane2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2285.25, 758.189 )
+rotation = -1.06989
+z_index = 1
+
+[node name="camera" type="Camera2D" parent="."]
+current = true
+
+[node name="HUD" parent="camera" instance=ExtResource( 3 )]
+
+[node name="until_switch" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="until_switch" to="." method="_on_until_switch_timeout"]

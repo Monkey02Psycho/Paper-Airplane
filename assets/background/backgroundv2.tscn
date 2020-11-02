@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/background_2.png" type="Texture" id=1]
+[ext_resource path="res://assets/background/backgroundv2.gd" type="Script" id=3]
+
+[node name="Node" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -125.716, -1526.55 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -5881.7, -1526.55 )
+texture = ExtResource( 1 )
+centered = false
