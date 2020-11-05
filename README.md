@@ -71,3 +71,8 @@ this is a short list of simple code I wrote in rust:
 
 - https://gist.github.com/rust-play/4d4dd6ff6e7b1527e46da68245c0382d this converts word directions to an enum that has directions.
 - https://gist.github.com/rust-play/01130772f86b14e2f9976fcf663b76a8 this converts a string number to an integer.
+
+
+
+____
+<sub>1</sub> I lied that example is in python but python and Godot are almost the same language. I could copy and paste python code and other then minor changes it would run. Its only in python because sometimes github doesnt like to highlight godot syntax
