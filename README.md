@@ -5,8 +5,24 @@ game design is tough. this is my first time using GDscript for anything larger t
 ### Credit 1 CSE2120
 Games contain many different types of data. There is Images for textures, Numbers for variables such as speed and time, booleans for data that can either be true or false, characters used to form names. There are instances when someone wants to store simple data in a more complex way. That kind of situation showed up often when Caleb and I where working on The game.
 
-There are several fundamental data types. those being, Characters, Integers, Floating point numbers booleans, and valueless datatype. These data types are fundamental simply because you can not break them down into any simpler structure<sup>1</sup>. Working with these just these data structures has some large advantages. the main being they are fast to work with. Addition on Integers takes mircoseconds, checking if two booleans are equivelant takes onces again microseconds, adding two floating point numbers takes yet again mere microseconds. Another advantage is you can quickly convert between these data types. going from a integer to a character is simply just interpreting the raw bits as bits representing a character. These simple data types do have some unavoidable disadvantages. Representing more complex ideas and structures is almost impossible. you need more complex data types to represent stuctures such as images, words, or list.
+#### fundamental data types
+- Integer
+- Floating point number or Float
+- Boolean
+- Character
 
-There are only a small amount of simple data structures. The structures being, list(also known as an array), linked list, binary tree, stack, Queue, graph and Hash table(also referred to as a dictionary). Many of these structures are built into Godot. The two most important data structors that we used for the game are list and Hash Table. list in godot are simple defined as ```var list = []```. list are ordered so it is easy to get an index of a list by doing something like ```print(list[0])``` which will print the first element of a list. In computer memory list are stored sequentially. This means it is easy to append items to the end of the list. In the game code we had a list of names of posible colors for the airplane sprite we could cycle through. A list was an obvious choice because we had a collection of items and needed to get either a specific index or a random one. dictionaries are found in the projects code. A dictionary has key value pairs. useful for when we needed a specific colour code to be associated with the name. you can insert new keys and values into the dictionary by writing code like this ```dic[key] = value``` . In short there are many data structures some are more commonly used especially in game design.
+these you will see all the time in code. lots of programming languages have types includes when you are naming variables but Godot figures that out during runtime. ```var speed = 200``` is something you will see in code. the data type is a float I just never had to specify when typing it out. These simple data types are fast and have general use
+
+#### Common data structures
+- Hashmap or dictionary
+- List
+- Linked list
+- Binary tree
+
+In the code list and Hashmaps are often used. List just store a list of the same data type. You can also have a list of list. using a list of list you get 2 dimensions which means you could use list to represent images or grid systems. We used list to define a colour names. ``` var names = ["white", "blue", "red" ...]``` this is just a snipet appending to a list is simple. godot has a built in function for that. Assuming that you wanted to make more work for your self then appending to a list is not awfully hard. The easiest way would be to have the last element of a list be a pointer that points to the next element(s) in the list you are appending. Hashmaps are also found in the code and are a very useful data structure. They have a keys value pairs. where each unique key is paired with some value. We used hashmaps to store colors along with their color name. `var colors = {"white": (0, 0, 0), "blue" (0, 255, 0), ...} ` is a small snipet of how we define a dictanary in Godot.
+
+#### one more important data structure.
+
+the record or struct as it is also called is in almost every step of the code. a record is just a way to group together multiple data structures/data types/ records. the simplest example is a 2D vector. all you have is two floats named x, and y. you could access the value for x by simple doing `thrust_vec.x` and the same idea for the y value.
 
 ### Credit 2 CSE2140
