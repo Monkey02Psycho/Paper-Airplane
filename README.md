@@ -26,3 +26,48 @@ In the code list and Hashmaps are often used. List just store a list of the same
 the record or struct as it is also called is in almost every step of the code. a record is just a way to group together multiple data structures/data types/ records. the simplest example is a 2D vector. all you have is two floats named x, and y. you could access the value for x by simple doing `thrust_vec.x` and the same idea for the y value.
 
 ### Credit 2 CSE2140
+Most code I write is done in rust. Godot and rust are on opposite ends of the spectrum.
+
+Rust | Godot
+-----| -----
+Rust is multi paradigm but best supports the imerative paradigms | godot is also multi paradigm. you can write functional code, oject oriented code or structured.
+Rust is a low level language. you must think about memory and whether to store data on the stack or heap | godot on the other hand does all this behind the scenes. you dont have to worry about managing memory or the stack vs heap.
+Rust wants you to write modular code that is seperated into logical groups | Godot shares the similar idea. you write small scripts to handle the logic for sprites or other components and have larger scripts to control more general things such as interactions between objects.
+Speed. Rust is compliled so before you run code it is translated directly to machine language | godot is translated to machine language on the fly which makes it measurably slower
+
+#### the same algorithem in both languages
+godot script<sub>1</sub>
+```python
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]>alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+```
+Godot script it implicitly knows to swap the two elements and I dont have to clone the array. Godot figures that out. Godot also figures out the types as the code is running
+Rust:
+```rust
+pub fn bubble_sort(array: Vec<i32>) -> Vec<i32>{
+    // rust calls arrays Vec
+    let mut temp: Vec<i32> = Vec::with_capacity(array.len());
+    temp = array.clone();
+    for i in 0..array.len(){
+        for j in 0..array.len()-i-1{
+            if temp[j] > temp[j + 1]{
+                temp.swap(j as usize, j + 1 as usize);
+            }
+        }
+    }
+    temp
+}
+```
+rust you have an explicit function for swaping two values of an array and you can define a an empty array that makes room for the new items. I also have to make sure all values types are known. arrays are indexed with usizes. I had to explicitly convert to a usize. a usize is the size of a pointer on a computer.
+
+#### examples of rust and godot.
+Going through this repository you any file with the exention .gd is a godotscript and you can see more examples of code i wrote in Godot.
+this is a short list of simple code I wrote in rust:
+
+- https://gist.github.com/rust-play/4d4dd6ff6e7b1527e46da68245c0382d this converts word directions to an enum that has directions.
+- https://gist.github.com/rust-play/01130772f86b14e2f9976fcf663b76a8 this converts a string number to an integer.
